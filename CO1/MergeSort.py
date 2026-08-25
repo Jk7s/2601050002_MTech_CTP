@@ -48,4 +48,4 @@ for name, marks in students:
 print("\nStudents eligible for scholarship:")
 for name, marks in students:
     if marks >= 90:
-        print(name, marks)
+        print(name)
