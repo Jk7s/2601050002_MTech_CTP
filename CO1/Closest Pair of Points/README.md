@@ -1,4 +1,4 @@
-## 2. Hospital Locations — Closest Pair
+##  Hospital Locations — Closest Pair
 
 ### Object
 
