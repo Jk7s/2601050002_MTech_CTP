@@ -1,4 +1,4 @@
-## 1. Employee Bonus — Quick Sort
+##  Employee Bonus — Quick Sort
 
 ### Object
 
