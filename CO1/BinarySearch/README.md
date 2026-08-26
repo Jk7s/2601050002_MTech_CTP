@@ -1,29 +1,29 @@
-### Algorithm: 
+### Algorithm: Library Book Search Using Binary Search
 
 1. **Start**
-2. Get the number of students `n`.
-3. For each student:
+2. Create a sorted array containing book numbers from `1` to `1,000,000`.
+3. Take the **book number** to be searched as input.
+4. Set:
 
-   * Enter the student's name.
-   * Enter the total number of classes conducted.
-   * Enter the number of classes attended.
-   * Store the details.
-4. Calculate the attendance percentage for each student using:
+   * `low = 0`
+   * `high = length of array - 1`
+5. Repeat while `low <= high`:
 
-   * `Attendance % = (Classes Attended / Total Classes) × 100`
-5. Store the calculated percentage for every student.
-6. Check each student's percentage:
+   * Calculate the middle position:
+     `mid = low + (high - low) // 2`
+   * If `array[mid] == target`:
 
-   * If percentage `< 75`, add the student to the below-threshold list.
-7. Find the student with the **highest attendance percentage**.
-8. Calculate the **class average attendance**:
+     * The book is found.
+     * Return `mid`.
+   * If `array[mid] < target`:
 
-   * `Average = Sum of all attendance percentages / Number of students`
-9. Display:
+     * Search the right half.
+     * Set `low = mid + 1`.
+   * Otherwise:
 
-   * Each student's attendance percentage.
-   * Students below 75%.
-   * Student with the highest attendance.
-   * Class average attendance.
-10. **Stop**.
-
+     * Search the left half.
+     * Set `high = mid - 1`.
+6. If the loop ends without finding the book, return `-1`.
+7. If the result is `-1`, display **"book not found"**.
+8. Otherwise, display the position of the book.
+9. **Stop**.
