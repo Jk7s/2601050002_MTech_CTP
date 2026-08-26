@@ -4,4 +4,7 @@ This folder contains programs related to CO1.
 
 ## Programs
 
-- binarysearch.py — Implementation of Binary Search.
+- binarysearch — Implementation of Binary Search.
+- Mergesort
+- Parking slots
+- student attendence
