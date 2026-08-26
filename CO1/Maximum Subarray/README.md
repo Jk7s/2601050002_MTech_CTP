@@ -1,4 +1,4 @@
-##Stock Profit — Maximum Subarray
+## Stock Profit — Maximum Subarray
 
 ### Object
 
