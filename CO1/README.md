@@ -4,7 +4,10 @@ This folder contains programs related to CO1.
 
 ## Programs
 
-- binarysearch — Implementation of Binary Search.
+- binarysearch
 - Mergesort
-- Parking slots
-- student attendence
+- Closest pair of points
+- Maximum subarray
+- Quicksort
+- Parking slots - Divide and Conquer
+- student attendence - Divide and Conquer
