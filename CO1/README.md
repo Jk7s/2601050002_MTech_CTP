@@ -11,3 +11,4 @@ This folder contains programs related to CO1.
 - Quicksort
 - Parking slots - Divide and Conquer
 - student attendence - Divide and Conquer
+- Online shopping - Divide and Conquer
