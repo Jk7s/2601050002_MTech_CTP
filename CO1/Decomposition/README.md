@@ -1,20 +1,30 @@
- ###A. Computational Thinking Decomposition, Abstraction & Pattern Recognition:
-##1. Online Food Delivery System
+ ### A. Computational Thinking Decomposition, Abstraction & Pattern Recognition:
+## 1. Online Food Delivery System
 You are asked to design an algorithm for an online food-delivery 
 application. The application must handle user login, restaurant selection, 
 food ordering, payment, and delivery tracking.
-#Question: How would you decompose this large problem into smaller subproblems?
-Solution
-#According to the scenario, the large Online Food Delivery problem can be divided into smaller sub-problems using Decomposition.
+# Question: 
+How would you decompose this large problem into smaller subproblems?
+# Solution
+According to the scenario, the large Online Food Delivery problem can be divided into smaller sub-problems using Decomposition.
 
-#Example – Swiggy
+# Example – Swiggy
 
 Imagine a user wants to order food using Swiggy.
-1. Decomposition
+# Decomposition
 
 The complete food-ordering process is divided into smaller tasks:
 
 Login → Select Location → Select Restaurant → Select Food → Add to Cart → Payment → Delivery Tracking
+
+1. User login
+2. Select restaurant
+3. Select food items
+4. Add food to cart
+5. Place order
+6. Make payment
+7. Track delivery
+8. Complete order
 
 Suppose the user orders:
 
