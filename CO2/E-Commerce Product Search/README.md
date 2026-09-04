@@ -21,6 +21,16 @@ An e-commerce company stores product information using lists, dictionaries and s
 
 ## (b) Rewriting the filter with comprehensions + set operations
 
+# Algorithm
+
+1. Store all product records in a **list of dictionaries**.
+2. Set the required `target_category` and `search_tags`.
+3. In the **nested-loop method**, check each product's category and compare its tags with every search tag.
+4. In the **Pythonic method**, convert `search_tags` into a set.
+5. Check the product category and use **set intersection (`&`)** to find common tags.
+6. Add matching products to the result and display the results from both methods.
+
+
 **Naive (nested-loop) version** — what the team currently does:
 
 ```python
