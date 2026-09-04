@@ -67,9 +67,9 @@ search_tags = ['audio', 'bluetooth']
 
 `product['tags'] & search_tags` returns a non-empty set (truthy) if there's at least one common tag — that single expression replaces the entire inner double loop.
 
-An even faster variant if filtering by category **repeatedly**, using a dict index:
+Output:
 
-```output
+```
 [
  {'id': 1, 'category': 'electronics', 'price': 299,
   'tags': {'wireless', 'audio'}},
