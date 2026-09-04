@@ -1,4 +1,15 @@
-# Q1. E-Commerce Product Search — Solution
+# Q1. E-Commerce Product Search — 8 Marks
+
+An e-commerce company stores product information using lists, dictionaries and sets. Each product record contains a product ID, category, price and a set of tags. The development team currently uses nested loops to identify products belonging to a specified category and having at least one matching tag.
+
+**(a)** Identify where a sequence, mapping and set would be most appropriate in this application. **[3]**
+
+**(b)** Rewrite the filtering operation using appropriate Pythonic constructs such as comprehensions and set operations. **[3]**
+
+**(c)** Explain why the selected data structures are preferable to repeatedly searching through lists. **[2]**
+
+
+# Solution:
 
 ## (a) Where sequence, mapping, and set fit
 
@@ -56,26 +67,22 @@ matches = find_products(products, 'electronics', ['audio', 'bluetooth'])
 
 An even faster variant if filtering by category **repeatedly**, using a dict index:
 
-```python
-from collections import defaultdict
+```output
+[
+ {'id': 1, 'category': 'electronics', 'price': 299,
+  'tags': {'wireless', 'audio'}},
 
-def build_category_index(products):
-    index = defaultdict(list)
-    for p in products:
-        index[p['category']].append(p)
-    return index
-
-def find_products_indexed(index, target_category, search_tags):
-    search_tags = set(search_tags)
-    return [p for p in index[target_category] if p['tags'] & search_tags]
+ {'id': 4, 'category': 'electronics', 'price': 59,
+  'tags': {'bluetooth', 'audio'}}
+]
 ```
 
 ## (c) Why these structures are preferable to repeatedly searching lists
 
 - **Lists force linear scanning.** Checking `category == target` or `tag in tag_list` means walking through elements one by one until a match is found (or the list ends) — there's no way to "jump" to the right entry.
-- **Dicts and sets use hashing.** Instead of comparing against every element, a hash of the key/value is computed and used to jump almost directly to the right bucket — this is what makes lookup and membership testing so much faster.
-- **Sets eliminate the nested loop entirely.** Matching "at least one common tag" between two tag lists normally requires comparing every tag against every other tag. A set intersection (`&`) does this comparison internally using hashing, so the programmer doesn't need an explicit nested loop at all.
-- **A dict index avoids repeating the category scan.** If searches happen many times, scanning the full product list for the category on *every single query* is wasteful. Building a `category → products` dict once means each future query jumps straight to the relevant subset.
+- **Dictionaries provide fast key-based lookup. A product can be represented using a dictionary so that fields such as id, category, price, and tags can be accessed directly using their keys.
+- **Sets eliminate the nested loop for tag matching. Instead of comparing every product tag with every search tag, set intersection finds common tags efficiently.
+- **Sets automatically remove duplicates. If the same tag appears more than once, a set stores it only once.
 
 ## Time Complexity
 
@@ -83,11 +90,7 @@ def find_products_indexed(index, target_category, search_tags):
 |---|---|---|---|
 | Nested loops (original) | O(N) scan | O(n·m) comparisons | **O(N · n · m)** |
 | Comprehension + set intersection | O(N) scan | O(min(n, m)) average | **O(N · min(n, m))** |
-| + dict category index | O(1) average lookup | O(min(n, m)) average | **O(k · min(n, m))**, where k = products in that category |
 
 Where:
 - **N** = total number of products
 - **n, m** = number of tags per product / number of search tags
-- **k** = number of products in the target category (k ≤ N)
-
-The dict + set version scales much better because both dict lookups and set intersections run in **O(1) / O(min(n,m)) average case** (via hashing) rather than the O(N) and O(n·m) required by repeated linear searches.
