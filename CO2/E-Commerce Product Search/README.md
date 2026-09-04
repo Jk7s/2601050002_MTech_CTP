@@ -57,10 +57,12 @@ products = [
     {'id': 1, 'category': 'electronics', 'price': 299, 'tags': {'wireless', 'audio'}},
     {'id': 2, 'category': 'electronics', 'price': 899, 'tags': {'gaming', 'laptop'}},
     {'id': 3, 'category': 'furniture',   'price': 150, 'tags': {'wooden', 'chair'}},
+    {'id': 4, 'category': 'electronics', 'price': 59,  'tags': {'bluetooth', 'audio'}},
+    {'id': 5, 'category': 'furniture',   'price': 220, 'tags': {'wooden', 'table'}},
 ]
 
-matches = find_products(products, 'electronics', ['audio', 'bluetooth'])
-# -> [{'id': 1, 'category': 'electronics', 'price': 299, 'tags': {'wireless','audio'}}]
+target_category = 'electronics'
+search_tags = ['audio', 'bluetooth']
 ```
 
 `product['tags'] & search_tags` returns a non-empty set (truthy) if there's at least one common tag — that single expression replaces the entire inner double loop.
@@ -80,9 +82,9 @@ An even faster variant if filtering by category **repeatedly**, using a dict ind
 ## (c) Why these structures are preferable to repeatedly searching lists
 
 - **Lists force linear scanning.** Checking `category == target` or `tag in tag_list` means walking through elements one by one until a match is found (or the list ends) — there's no way to "jump" to the right entry.
-- **Dictionaries provide fast key-based lookup. A product can be represented using a dictionary so that fields such as id, category, price, and tags can be accessed directly using their keys.
-- **Sets eliminate the nested loop for tag matching. Instead of comparing every product tag with every search tag, set intersection finds common tags efficiently.
-- **Sets automatically remove duplicates. If the same tag appears more than once, a set stores it only once.
+- **Dictionaries provide fast key-based lookup.** A product can be represented using a dictionary so that fields such as id, category, price, and tags can be accessed directly using their keys.
+- **Sets eliminate the nested loop** for tag matching. Instead of comparing every product tag with every search tag, set intersection finds common tags efficiently.
+- **Sets automatically remove duplicates.** If the same tag appears more than once, a set stores it only once.
 
 ## Time Complexity
 
