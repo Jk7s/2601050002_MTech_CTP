@@ -28,21 +28,6 @@ To implement the **Merge Sort algorithm** using the **Divide and Conquer** techn
 
 **Step 9:** Stop.
 
-### Pseudocode
-
-```text
-MERGE_SORT(array):
-
-    if length of array <= 1:
-        return array
-
-    Divide array into left and right halves
-
-    left = MERGE_SORT(left)
-    right = MERGE_SORT(right)
-
-    return MERGE(left, right)
-```
 
 # 2. Python Program
 
