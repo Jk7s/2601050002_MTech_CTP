@@ -1,5 +1,3 @@
-Absolutely. Since this is for a **lab record**, we can make it much shorter while still using **type hints and dataclasses**.
-
 ## 1. Algorithm / Procedure
 
 **Stack:**
