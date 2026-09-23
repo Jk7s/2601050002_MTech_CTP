@@ -1,5 +1,3 @@
-Sure — here is a **very simple lab-friendly version** with type hints, inheritance, and abstraction.
-
 ## 1. Algorithm / Procedure
 
 1. Create an abstract `BankAccount` class.
